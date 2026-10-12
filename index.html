@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="一个简洁、温暖的个人主页。" />
+  <title>我的个人主页</title>
+  <style>
+    :root {
+      --ink: #283447;
+      --muted: #677487;
+      --accent: #526bba;
+      --accent-dark: #3f559e;
+      --surface: rgba(255, 255, 255, 0.88);
+      --border: #e7ebf4;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background: linear-gradient(145deg, #eef3ff 0%, #fafbff 48%, #f4f7fb 100%);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
+
+    header { padding: 26px 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { font-weight: 800; font-size: 19px; letter-spacing: .5px; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--accent); }
+
+    main { padding: 45px 0 80px; }
+    .hero { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 64px; padding: 32px 0 80px; }
+    .eyebrow { display: inline-block; padding: 6px 13px; border-radius: 20px; background: #e4eaff; color: var(--accent-dark); font-weight: 700; font-size: 13px; }
+    h1 { font-size: clamp(35px, 5vw, 58px); line-height: 1.2; margin: 24px 0 20px; letter-spacing: -1px; }
+    h1 span { color: var(--accent); }
+    .intro { max-width: 520px; color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 22px; border-radius: 12px; font-size: 14px; font-weight: 700; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-secondary { background: white; border: 1px solid #dfe4f2; color: var(--ink); }
+
+    .photo-wrap { position: relative; }
+    .photo-wrap::before { content: ""; position: absolute; inset: 22px -14px -18px 14px; border-radius: 30px; background: #dbe4ff; transform: rotate(4deg); }
+    .photo { display: block; position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 28px; box-shadow: 0 22px 55px rgba(54, 75, 135, .15); background: #dce4f4; }
+
+    .section-title { font-size: 26px; margin: 0 0 22px; letter-spacing: -.3px; }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 28px 30px; box-shadow: 0 12px 35px rgba(46, 67, 111, .04); }
+    .card h3 { margin: 0 0 12px; font-size: 19px; }
+    .card p { margin: 0; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 17px; }
+    .tag { padding: 5px 12px; background: #f0f3fc; border-radius: 18px; color: #566482; font-size: 13px; }
+
+    footer { border-top: 1px solid var(--border); padding: 26px 0; text-align: center; color: #8a94a5; font-size: 13px; }
+    @media (max-width: 720px) {
+      header { padding: 20px 0; }
+      .nav-links { gap: 15px; }
+      main { padding-top: 15px; }
+      .hero { grid-template-columns: 1fr; gap: 40px; padding-bottom: 62px; }
+      .photo-wrap { width: min(360px, 90%); margin: 0 auto; }
+      .cards { grid-template-columns: 1fr; }
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container nav" aria-label="主导航">
+      <a href="#home" class="logo">MY<span>SPACE.</span></a>
+      <div class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#interests">我的兴趣</a>
+        <a href="#contact">联系我</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero" aria-label="个人介绍">
+      <div>
+        <span class="eyebrow">欢迎来到我的小天地 ✨</span>
+        <h1>你好，<br />我是<span>你的名字</span>。</h1>
+        <p class="intro">很高兴在这里遇见你！这是我的个人主页。我喜欢探索新鲜事物，记录生活中的小美好，也期待遇见更多有趣的人。</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#about">了解更多 →</a>
+          <a class="btn btn-secondary" href="#contact">联系我</a>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <!-- 图片请与 index.html 放在同一个文件夹中 -->
+        <img class="photo" src="./shuicc.jpg" alt="我的个人照片" />
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="section-heading">
+      <h2 class="section-title" id="section-heading">关于我</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>👋 简单介绍</h3>
+          <p>一个热爱生活、保持好奇的人。这里可以写下你的家乡、职业、学习方向，或者任何想让朋友们了解的故事。</p>
+        </article>
+        <article class="card" id="interests">
+          <h3>💜 兴趣爱好</h3>
+          <p>闲暇时，我喜欢做一些让自己开心的事情，也喜欢不断尝试新的可能。</p>
+          <div class="tags">
+            <span class="tag">📷 摄影</span>
+            <span class="tag">🎵 音乐</span>
+            <span class="tag">✈️ 旅行</span>
+            <span class="tag">📚 阅读</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" style="padding-top: 54px;" aria-labelledby="contact-heading">
+      <div class="card">
+        <h2 class="section-title" id="contact-heading" style="margin-bottom: 8px;">保持联系 💌</h2>
+        <p>想和我打个招呼？欢迎发邮件给我！</p>
+        <!-- 将邮箱替换成你自己的邮箱地址 -->
+        <p style="margin-top: 14px;"><a href="/cdn-cgi/l/email-protection#8be3eee7e7e4cbeef3eae6fbe7eea5e8e4e6" style="color: var(--accent); font-weight: 700;"><span class="__cf_email__" data-cfemail="0f676a6363604f6a776e627f636a216c6062">[email&#160;protected]</span> ↗</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year">2026</span> 你的名字 · 感谢你的到访 ♡</footer>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"7939e04a4baf43c8b86a560f74aac60e","spa":2}' crossorigin="anonymous"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"1c1c7799c54e46349cc23295b5e08299","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
